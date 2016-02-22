@@ -8,6 +8,7 @@ namespace KROZ.Items
 {
     class Weapons : Items
     {
+<<<<<<< HEAD
         string name { set; get; }
         int attackRate { set; get; }
         int missedRate { set; get; }
@@ -30,6 +31,8 @@ namespace KROZ.Items
             Console.WriteLine("Arme: "+name+", ses dommages sont de "+attackRate+", et elle a "+missedRate+"% de chances de rater sa cible. \n Info supp : ID = "+id+"\n");
             Console.ReadLine();
         }
+=======
+>>>>>>> origin/master
 
     }
 }

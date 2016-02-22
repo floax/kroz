@@ -8,7 +8,10 @@ namespace KROZ.Characters
 {
     class PNJ : Character
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     }
 }
 

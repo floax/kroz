@@ -8,6 +8,9 @@ namespace KROZ.Characters
 {
     class Character
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     }
 }

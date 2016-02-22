@@ -8,6 +8,7 @@ namespace KROZ.Characters
 {
     class PJ : Character
     {
+<<<<<<< HEAD
         string name;
         string sexe;
 
@@ -16,5 +17,7 @@ namespace KROZ.Characters
             this.name = name;
             this.sexe = sexe;
         }
+=======
+>>>>>>> origin/master
     }
 }

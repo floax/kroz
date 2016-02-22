@@ -51,7 +51,10 @@
     <Compile Include="Items\UsableItems.cs" />
     <Compile Include="Items\Weapons.cs" />
     <Compile Include="Map\Map.cs" />
+<<<<<<< HEAD
     <Compile Include="Menus\GameStatus.cs" />
+=======
+>>>>>>> origin/master
     <Compile Include="Menus\PrincipalMenu.cs" />
     <Compile Include="Characters\PNJ.cs" />
     <Compile Include="Characters\PJ.cs" />

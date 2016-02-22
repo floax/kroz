@@ -8,6 +8,7 @@ namespace KROZ.Items
 {
     class Components : Items
     {
+<<<<<<< HEAD
         public Components(int id)
             : base(id)
         {
@@ -18,5 +19,8 @@ namespace KROZ.Items
         {
             return id;
         }
+=======
+        
+>>>>>>> origin/master
     }
 }
