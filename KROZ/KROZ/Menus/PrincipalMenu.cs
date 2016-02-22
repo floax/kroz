@@ -8,7 +8,6 @@ namespace KROZ.Menus
 {
     class PrincipalMenu
     {
-<<<<<<< HEAD
         public PrincipalMenu()
         {
          
@@ -58,7 +57,5 @@ namespace KROZ.Menus
 
         }
             
-=======
->>>>>>> origin/master
     }
 }

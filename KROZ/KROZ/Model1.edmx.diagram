@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f97b7d2e5dcf429a84939dfc6bab353b" Name="Diagram1">
+        <EntityTypeShape EntityType="krozModel.Cell" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Object" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Object_Type" Width="1.5" PointX="0.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Player" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Weapon" Width="1.5" PointX="5.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Monster" Width="1.5" PointX="5" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="krozModel.FK_Object_Object_Type" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="krozModel.sysdiagrams" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="krozModel.ObjectInventory" Width="1.5" PointX="7.375" PointY="3.75" />
+        <AssociationConnector Association="krozModel.FK_Object_Player" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

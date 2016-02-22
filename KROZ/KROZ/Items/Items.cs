@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace KROZ.Items
 {
-<<<<<<< HEAD
     abstract class Items
     {
         protected int id;
@@ -17,10 +16,5 @@ namespace KROZ.Items
         }
 
         public abstract int getID();
-=======
-    class Items
-    {
-
->>>>>>> origin/master
     }
 }

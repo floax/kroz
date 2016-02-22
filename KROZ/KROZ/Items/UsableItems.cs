@@ -8,7 +8,7 @@ namespace KROZ.Items
 {
     class UsableItems : Items
     {
-<<<<<<< HEAD
+
         string name;
         int restoredHP;
         int attackBoost;
@@ -27,8 +27,6 @@ namespace KROZ.Items
         {
             return id;
         }
-=======
 
->>>>>>> origin/master
     }
 }
