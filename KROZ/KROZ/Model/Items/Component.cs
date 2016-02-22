@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace KROZ.Items
 {
-    abstract class Items
+    class Component : Item
     {
-        protected int id;
 
-        public Items(int id)
+        public Component(int id)
+            : base(id)
         {
-            this.id = id;
+
         }
 
-        public abstract int getID();
+        public override int getID()
+        {
+            return id;
+        }
     }
 }
