@@ -56,6 +56,23 @@
   <ItemGroup>
     <Compile Include="KrozDbContext.cs" />
     <Compile Include="Menus\GameStatus.cs" />
+    <Compile Include="Migrations\201602231004344_Test.cs" />
+    <Compile Include="Migrations\201602231004344_Test.Designer.cs">
+      <DependentUpon>201602231004344_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602231022374_Test2.cs" />
+    <Compile Include="Migrations\201602231022374_Test2.Designer.cs">
+      <DependentUpon>201602231022374_Test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602231028423_Initialisation.cs" />
+    <Compile Include="Migrations\201602231028423_Initialisation.Designer.cs">
+      <DependentUpon>201602231028423_Initialisation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602231033035_Init-2.cs" />
+    <Compile Include="Migrations\201602231033035_Init-2.Designer.cs">
+      <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Characters\Character.cs" />
     <Compile Include="Model\Items\Component.cs" />
     <Compile Include="Menus\CharacInfos.cs" />
@@ -86,6 +103,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602231004344_Test.resx">
+      <DependentUpon>201602231004344_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602231022374_Test2.resx">
+      <DependentUpon>201602231022374_Test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602231028423_Initialisation.resx">
+      <DependentUpon>201602231028423_Initialisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602231033035_Init-2.resx">
+      <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

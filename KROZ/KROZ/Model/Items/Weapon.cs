@@ -11,14 +11,12 @@ namespace KROZ.Items
     [Table("Weapon")]
     public class Weapon : Item
     {
-        [Key]
-        public int ID { get; set; }
         [Required]
         [Column("AttackRate")]
-        int attackRate { set; get; }
+        public int attackRate { set; get; }
         [Required]
         [Column("MissedRate")]
-        int missedRate { set; get; }
+        public int missedRate { set; get; }
 
         public Weapon(string name, int attackrate = 20, int missedrate = 50):base(name)
         {

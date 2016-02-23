@@ -11,11 +11,9 @@ namespace KROZ.Characters
     [Table("Player")]
     class PJ : Character
     {
-        [Key]
-        public int ID { get; set; }
         [Required]
         [Column("XP")]
-        protected int xP { get; set; }
+        public int xP { get; set; }
 
         public PJ(string name, string genre, ICollection<Items.Item> items, ICollection<Items.UsableItem> objects, Location.Cell currentCell, int maxHp) :base(name, genre, items, currentCell, maxHp)
         {
