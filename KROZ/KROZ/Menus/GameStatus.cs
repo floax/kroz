@@ -9,13 +9,15 @@ namespace KROZ.Menus
     class GameStatus
     {
 
+        //Liste pour envoyer le nouveau joueur/joueur récupéré ailleurs dans le code
+        List<dynamic> List = new List<dynamic>();
 
         public GameStatus()
         {
-            
+
         }
 
-        public void init()
+        public List<dynamic> init()
         {
             string name;
             string sexe;
@@ -23,23 +25,23 @@ namespace KROZ.Menus
             string answer;
             string personnage;
 
-            
+
             Console.Clear();
             Console.WriteLine("=-- NOUVELLE PARTIE --= !");
 
             do
             {
-                Console.WriteLine("\nChoissiez un pseudo: ");
+                Console.WriteLine("\nQuel est votre pseudo? ");
                 name = Console.ReadLine();
                 do
                 {
-                    Console.WriteLine("\nChoissez votre sexe. (F/M)");
+                    Console.WriteLine("\nJe vois que vous êtes humain. Etes-vous un homme ou une femme? (F/M)");
                     sexe = Console.ReadLine();
 
                 } while (sexe.ToLower() != "f" && sexe.ToLower() != "m");
 
 
-                Console.WriteLine("Nom : "+name+"\nSexe : "+sexe+" .\nCela est-il juste ? (O/N)\n");
+                Console.WriteLine("Nom : " + name + "\nSexe : " + sexe + " .\nEst-ce que j'ai bon ? (O/N)\n");
                 answer = Console.ReadLine();
                 if (answer.ToLower() == "oui" || answer.ToLower() == "o")
                 {
@@ -49,33 +51,46 @@ namespace KROZ.Menus
                 {
                     OK = false;
                 }
-
-
             } while (OK == false);
 
-            if (sexe == "f")
+            if (sexe.ToLower() == "f")
             {
                 personnage = "Votre personnage est une femme prénommée " + name + ".\n";
             }
-            else {
+            else
+            {
                 personnage = "Votre personnage est un homme prénommé " + name + ".\n";
             }
+
             Console.WriteLine(personnage);
 
-            createCharacter(name, sexe);
+            this.List = createCharacter(name, sexe);
+            return this.List;
+
         }
 
         public void gameResume()
         {
-            Console.WriteLine("You're resuming your game!");
+            Console.WriteLine("Je viens de finir de télécharger votre jeu. Vous pouvez maintenant reprendre votre partie.");
+
         }
 
-        public void createCharacter(string name, string sexe)
+        public List<dynamic> createCharacter(string name, string sexe)
         {
-            /**
-            *Ajout des datas à la BDD
-            **/
-            Console.WriteLine("Votre personnage a été créé !");
+            /* Initialisation des variables */
+
+            List<dynamic> tempList = new List<dynamic>();
+            Inventory inventaire = new Inventory(); //Nouvel inventaire. Contient, de base, un couteau
+            Location.Cell startCell = new Location.Cell(10, 10, true); //Cellule de départ. 10.10 correspond au milieu de la carte
+            Characters.PJ joueur = new Characters.PJ(name, sexe, inventaire.getItems(), startCell); //Nouveau héros
+            Location.Map map = new Location.Map("Mon Monde"); //Nouvelle map, vide
+            map.createMap(); //Génération aléatoire des cellules
+
+            //On veut récupérer la map et le joueur
+            tempList.Add(joueur);
+            tempList.Add(map);
+
+            return tempList;
         }
     }
 }

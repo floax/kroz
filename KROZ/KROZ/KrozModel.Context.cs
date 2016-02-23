@@ -25,14 +25,12 @@ namespace KROZ
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Cell> Cell { get; set; }
         public virtual DbSet<Character> Character { get; set; }
         public virtual DbSet<Item> Item { get; set; }
         public virtual DbSet<Map> Map { get; set; }
         public virtual DbSet<Monster> Monster { get; set; }
         public virtual DbSet<Player> Player { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UsableItem> UsableItem { get; set; }
         public virtual DbSet<Weapon> Weapon { get; set; }
     }

@@ -50,5 +50,23 @@ namespace KROZ.Characters
             this.hp = maxHP;
             this.level = 1;
         }
+
+        public string characterInfo()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Name: ");
+            sb.AppendLine(this.name);
+            sb.Append("Genre: ");
+            sb.AppendLine(this.genre);
+            sb.Append("Position: ");
+            sb.AppendLine(this.currentCell.locate());
+            sb.Append("MaxHP: ");
+            sb.AppendLine(this.maxHP.ToString());
+            sb.Append("HP: ");
+            sb.AppendLine(this.hp.ToString());
+            sb.Append("Level: ");
+            sb.AppendLine(this.level.ToString());
+            return sb.ToString();
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace KROZ.Items
 {
     [Table("Item")]
-    public abstract class Item
+    public class Item
     {
         [Key]
         public int ID { get; set; }

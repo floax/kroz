@@ -23,9 +23,10 @@ namespace KROZ.Location
         public Map(string name)
         {
             this.name = name;
+            cells = new List<Cell>();
         }
 
-        void createMap()
+        public void createMap()
         {
             for(int i = 0; i <= SIZE;i++)
             {

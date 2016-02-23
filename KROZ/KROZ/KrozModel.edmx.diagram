@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="70fc6cc062084dec940002b730d2c8c6" Name="Diagram1" ZoomLevel="65">
+      <Diagram DiagramId="70fc6cc062084dec940002b730d2c8c6" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="krozModel.Cell" Width="1.5" PointX="0.875" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="krozModel.Character" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="krozModel.Item" Width="1.5" PointX="5.125" PointY="0.625" IsExpanded="true" />

@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KROZ.Items;
+using KROZ.Location;
 
 namespace KROZ.Characters
 {
@@ -15,9 +17,14 @@ namespace KROZ.Characters
         [Column("XP")]
         public int xP { get; set; }
 
-        public PJ(string name, string genre, ICollection<Items.Item> items, ICollection<Items.UsableItem> objects, Location.Cell currentCell, int maxHp) :base(name, genre, items, currentCell, maxHp)
+        public PJ(string name = "Jerry", string genre = "M", ICollection<Items.Item> items = null, Location.Cell currentCell = null, int maxHp = 100, int level = 1) : base(name, genre, items, currentCell, maxHp, level)
         {
             this.xP = 0;
+        }
+
+        public ICollection<Items.Item> returnInventory()
+        {
+            return this.items;
         }
     }
 }

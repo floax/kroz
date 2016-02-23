@@ -54,7 +54,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cell.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Character.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controler\ColorWriting.cs" />
+    <Compile Include="Controler\Navigate.cs" />
+    <Compile Include="Controler\Writings.cs" />
+    <Compile Include="Item.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="KrozDbContext.cs" />
+    <Compile Include="KrozModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KrozModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KrozModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KrozModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KrozModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Map.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Menus\GameStatus.cs" />
     <Compile Include="Migrations\201602231004344_Test.cs" />
     <Compile Include="Migrations\201602231004344_Test.Designer.cs">
@@ -85,6 +115,12 @@
     <Compile Include="Menus\PrincipalMenu.cs" />
     <Compile Include="Model\Characters\PNJ.cs" />
     <Compile Include="Model\Characters\PJ.cs" />
+    <Compile Include="Monster.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -92,9 +128,23 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UsableItem.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Weapon.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <EntityDeploy Include="KrozModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KrozModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KrozModel.edmx.diagram">
+      <DependentUpon>KrozModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,6 +167,18 @@
     <EmbeddedResource Include="Migrations\201602231033035_Init-2.resx">
       <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KrozModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KrozModel.edmx</DependentUpon>
+      <LastGenOutput>KrozModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KrozModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KrozModel.edmx</DependentUpon>
+      <LastGenOutput>KrozModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -49,5 +49,16 @@ namespace KROZ.Location
             Random rnd = new Random();
             this.monsterRate = rnd.Next(MAX_MONSTER_RATE);
         }
+
+        public string locate()
+        {
+            StringBuilder position = new StringBuilder();
+            position.Append("X_");
+            position.Append(this.posX.ToString());
+            position.Append(" / Y_");
+            position.Append(this.posY.ToString());
+            
+            return position.ToString();
+        }
     }
 }
