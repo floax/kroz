@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 ﻿using KROZ.Items;
 using KROZ.Characters;
-using KROZ.Map;
+using KROZ.Location;
 using KROZ.Menus;
 using System;
 using System.Collections.Generic;

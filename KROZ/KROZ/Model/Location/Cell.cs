@@ -1,23 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KROZ.Location
 {
+    [Table("Cell")]
     public class Cell
     {
         protected const int MAX_MONSTER_RATE = 25;
-
+        [Key]
+        public int ID { get; set; }
         //Unnullable fields
+        [Required]
+        [Column("PosX")]
         public int posX { get; set; }
+        [Required]
+        [Column("PosY")]
         public int posY { get; set; }
+        [Required]
+        [Column("MoveTo")]
         public Boolean canMoveTo { get; set; }
+        [Required]
+        [Column("MonsterRate")]
         public int monsterRate { get; set; }
 
         //Nullable Fields
+        [Column("Description")]
         public string description { get; set; }
+        [Column("MonsterGroup")]
         public int monsterGroup { get; set; }
 
         //Relations

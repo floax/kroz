@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,16 +10,10 @@ namespace KROZ.Items
 {
     class Component : Item
     {
-
-        public Component(int id)
-            : base(id)
+        public Component(string name)
+            : base(name)
         {
 
-        }
-
-        public override int getID()
-        {
-            return id;
         }
     }
 }

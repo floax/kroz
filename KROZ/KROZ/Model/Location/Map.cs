@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KROZ.Location
 {
+    [Table("Map")]
     public class Map
     {
         protected const int SIZE = 20;
-        protected int id { get; set; }
+        [Key]
+        protected int ID { get; set; }
+        [Required]
+        [Column("Name")]
         protected string name { get; set; }
 
         public ICollection<Cell> cells;
