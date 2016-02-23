@@ -12,27 +12,28 @@ namespace KROZ.Characters
     public abstract class Character
     {
         [Key]
-        protected int ID { get; set; }
+        public int ID { get; set; }
+
         [Required]
         [Column("Name")]
         [MaxLength(50)]
-        protected string name { get; set; }
+        public string name { get; set; }
         [Required]
         [Column("Genre")]
         [MaxLength(50)]
-        protected string genre { get; set; }
+        public string genre { get; set; }
         [Required]
         [Column("HP")]
-        protected int hp { get; set; }
+        public int hp { get; set; }
         [Required]
         [Column("MaxHP")]
-        protected int maxHP { get; set; }
+        public int maxHP { get; set; }
         [Required]
         [Column("Level")]
-        protected int level { get; set; }
+        public int level { get; set; }
         [Required]
         [Column("CurrentCell")]
-        protected Location.Cell currentCell { get; set; }
+        public Location.Cell currentCell { get; set; }
 
         //Relations
         public ICollection<Items.Item> items { get; set; }

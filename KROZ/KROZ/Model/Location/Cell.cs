@@ -37,6 +37,7 @@ namespace KROZ.Location
         //Relations
         ICollection<Characters.Character> charaters;
         ICollection<Items.Item> items;
+        public ICollection<Map> maps { get; set; }
 
         public Cell(int posX, int posY, Boolean canMoveTo)
         {
@@ -44,6 +45,7 @@ namespace KROZ.Location
             this.posY = posY;
             this.canMoveTo = canMoveTo;
 
+            //Création aléatoire du pourcentage de chance de rencontre avec un monstre
             Random rnd = new Random();
             this.monsterRate = rnd.Next(MAX_MONSTER_RATE);
         }

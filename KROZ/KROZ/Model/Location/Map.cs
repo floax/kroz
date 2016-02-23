@@ -13,10 +13,10 @@ namespace KROZ.Location
     {
         protected const int SIZE = 20;
         [Key]
-        protected int ID { get; set; }
+        public int ID { get; set; }
         [Required]
         [Column("Name")]
-        protected string name { get; set; }
+        public string name { get; set; }
 
         public ICollection<Cell> cells;
 

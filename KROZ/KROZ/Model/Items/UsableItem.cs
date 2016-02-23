@@ -11,18 +11,15 @@ namespace KROZ.Items
     [Table("UsableItem")]
     public class UsableItem : Item
     {
-        [Key]
-        public int ID { get; set; }
-
         [Required]
         [Column("RestoreHP")]
-        protected int restoreHP { get; set; }
+        public int restoreHP { get; set; }
         [Required]
         [Column("AttackBoost")]
-        protected int attackBoost { get; set; }
+        public int attackBoost { get; set; }
         [Required]
         [Column("DefenseBoost")]
-        protected int defenseBoost { get; set; }
+        public int defenseBoost { get; set; }
 
 
         public UsableItem(string name, int RHP, int AB, int DB) : base(name)
