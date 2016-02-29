@@ -86,7 +86,7 @@ namespace KROZ.Menus
 
             List<dynamic> tempList = new List<dynamic>();
             Inventory inventaire = new Inventory(); //Nouvel inventaire. Contient, de base, un couteau et une potion
-            Location.Cell startCell = new Location.Cell(10, 10, true); //Cellule de départ. 10.10 correspond au milieu de la carte
+            Location.Cell startCell = db.maps.Find(15).cells.First(); //Cellule de départ. 10.10 correspond au milieu de la carte
             Characters.PJ joueur = new Characters.PJ(name, sexe, inventaire, startCell); //Nouveau héros
 
             db.inventory.Add(inventaire);
