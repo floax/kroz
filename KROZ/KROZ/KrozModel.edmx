@@ -28,14 +28,23 @@
           <Property Name="HP" Type="int" Nullable="false" />
           <Property Name="MaxHP" Type="int" Nullable="false" />
           <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="inventory_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Character_ID" Type="int" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" />
+          <Property Name="Inventory_ID" Type="int" />
+          <Property Name="Inventory_ID1" Type="int" />
         </EntityType>
         <EntityType Name="Map">
           <Key>
@@ -72,8 +81,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="AttackRate" Type="int" Nullable="false" />
-          <Property Name="MissedRate" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_Character_dbo_Cell_currentCell_ID">
           <End Role="Cell" Type="Self.Cell" Multiplicity="1">
@@ -89,15 +96,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Item_dbo_Character_Character_ID">
-          <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
+        <Association Name="FK_dbo_Character_dbo_Inventory_inventory_ID">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Character" Type="Self.Character" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Character">
+              <PropertyRef Name="inventory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Item_dbo_Inventory_Inventory_ID">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
           <End Role="Item" Type="Self.Item" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Character">
+            <Principal Role="Inventory">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Item">
-              <PropertyRef Name="Character_ID" />
+              <PropertyRef Name="Inventory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Item_dbo_Inventory_Inventory_ID1">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="Inventory_ID1" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -164,6 +195,7 @@
         <EntityContainer Name="krozModelStoreContainer">
           <EntitySet Name="Cell" EntityType="Self.Cell" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Character" EntityType="Self.Character" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Map" EntityType="Self.Map" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Monster" EntityType="Self.Monster" Schema="dbo" store:Type="Tables" />
@@ -174,8 +206,16 @@
             <End Role="Cell" EntitySet="Cell" />
             <End Role="Character" EntitySet="Character" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Item_dbo_Character_Character_ID" Association="Self.FK_dbo_Item_dbo_Character_Character_ID">
+          <AssociationSet Name="FK_dbo_Character_dbo_Inventory_inventory_ID" Association="Self.FK_dbo_Character_dbo_Inventory_inventory_ID">
+            <End Role="Inventory" EntitySet="Inventory" />
             <End Role="Character" EntitySet="Character" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Item_dbo_Inventory_Inventory_ID" Association="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Item_dbo_Inventory_Inventory_ID1" Association="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID1">
+            <End Role="Inventory" EntitySet="Inventory" />
             <End Role="Item" EntitySet="Item" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Map_dbo_Cell_Cell_ID" Association="Self.FK_dbo_Map_dbo_Cell_Cell_ID">
@@ -229,19 +269,32 @@
           <Property Name="HP" Type="Int32" Nullable="false" />
           <Property Name="MaxHP" Type="Int32" Nullable="false" />
           <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="inventory_ID" Type="Int32" />
           <NavigationProperty Name="Cell" Relationship="Self.FK_dbo_Character_dbo_Cell_currentCell_ID" FromRole="Character" ToRole="Cell" />
-          <NavigationProperty Name="Item" Relationship="Self.FK_dbo_Item_dbo_Character_Character_ID" FromRole="Character" ToRole="Item" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_dbo_Character_dbo_Inventory_inventory_ID" FromRole="Character" ToRole="Inventory" />
           <NavigationProperty Name="Monster" Relationship="Self.FK_dbo_Monster_dbo_Character_ID" FromRole="Character" ToRole="Monster" />
           <NavigationProperty Name="Player" Relationship="Self.FK_dbo_Player_dbo_Character_ID" FromRole="Character" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Character" Relationship="Self.FK_dbo_Character_dbo_Inventory_inventory_ID" FromRole="Inventory" ToRole="Character" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID" FromRole="Inventory" ToRole="Item" />
+          <NavigationProperty Name="Item1" Relationship="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID1" FromRole="Inventory" ToRole="Item" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Character_ID" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Character" Relationship="Self.FK_dbo_Item_dbo_Character_Character_ID" FromRole="Item" ToRole="Character" />
+          <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Inventory_ID" Type="Int32" />
+          <Property Name="Inventory_ID1" Type="Int32" />
+          <NavigationProperty Name="Inventory" Relationship="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID" FromRole="Item" ToRole="Inventory" />
+          <NavigationProperty Name="Inventory1" Relationship="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID1" FromRole="Item" ToRole="Inventory" />
           <NavigationProperty Name="UsableItem" Relationship="Self.FK_dbo_UsableItem_dbo_Item_ID" FromRole="Item" ToRole="UsableItem" />
           <NavigationProperty Name="Weapon" Relationship="Self.FK_dbo_Weapon_dbo_Item_ID" FromRole="Item" ToRole="Weapon" />
         </EntityType>
@@ -284,8 +337,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="AttackRate" Type="Int32" Nullable="false" />
-          <Property Name="MissedRate" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Item" Relationship="Self.FK_dbo_Weapon_dbo_Item_ID" FromRole="Weapon" ToRole="Item" />
         </EntityType>
         <Association Name="FK_dbo_Character_dbo_Cell_currentCell_ID">
@@ -314,15 +365,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_Item_dbo_Character_Character_ID">
-          <End Role="Character" Type="Self.Character" Multiplicity="0..1" />
-          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+        <Association Name="FK_dbo_Character_dbo_Inventory_inventory_ID">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Character" Type="Self.Character" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Character">
+            <Principal Role="Inventory">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Item">
-              <PropertyRef Name="Character_ID" />
+            <Dependent Role="Character">
+              <PropertyRef Name="inventory_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -350,6 +401,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_Item_dbo_Inventory_Inventory_ID">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="Inventory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Item_dbo_Inventory_Inventory_ID1">
+          <End Role="Inventory" Type="Self.Inventory" Multiplicity="0..1" />
+          <End Role="Item" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="Inventory_ID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_UsableItem_dbo_Item_ID">
           <End Role="Item" Type="Self.Item" Multiplicity="1" />
           <End Role="UsableItem" Type="Self.UsableItem" Multiplicity="0..1" />
@@ -374,9 +449,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="krozEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="krozEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cell" EntityType="Self.Cell" />
           <EntitySet Name="Character" EntityType="Self.Character" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
           <EntitySet Name="Item" EntityType="Self.Item" />
           <EntitySet Name="Map" EntityType="Self.Map" />
           <EntitySet Name="Monster" EntityType="Self.Monster" />
@@ -391,9 +467,9 @@
             <End Role="Cell" EntitySet="Cell" />
             <End Role="Map" EntitySet="Map" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_Item_dbo_Character_Character_ID" Association="Self.FK_dbo_Item_dbo_Character_Character_ID">
+          <AssociationSet Name="FK_dbo_Character_dbo_Inventory_inventory_ID" Association="Self.FK_dbo_Character_dbo_Inventory_inventory_ID">
+            <End Role="Inventory" EntitySet="Inventory" />
             <End Role="Character" EntitySet="Character" />
-            <End Role="Item" EntitySet="Item" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Monster_dbo_Character_ID" Association="Self.FK_dbo_Monster_dbo_Character_ID">
             <End Role="Character" EntitySet="Character" />
@@ -402,6 +478,14 @@
           <AssociationSet Name="FK_dbo_Player_dbo_Character_ID" Association="Self.FK_dbo_Player_dbo_Character_ID">
             <End Role="Character" EntitySet="Character" />
             <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Item_dbo_Inventory_Inventory_ID" Association="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Item_dbo_Inventory_Inventory_ID1" Association="Self.FK_dbo_Item_dbo_Inventory_Inventory_ID1">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Item" EntitySet="Item" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_UsableItem_dbo_Item_ID" Association="Self.FK_dbo_UsableItem_dbo_Item_ID">
             <End Role="Item" EntitySet="Item" />
@@ -417,7 +501,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="krozModelStoreContainer" CdmEntityContainer="krozEntities">
+        <EntityContainerMapping StorageEntityContainer="krozModelStoreContainer" CdmEntityContainer="krozEntities3">
           <EntitySetMapping Name="Cell">
             <EntityTypeMapping TypeName="krozModel.Cell">
               <MappingFragment StoreEntitySet="Cell">
@@ -441,6 +525,14 @@
                 <ScalarProperty Name="HP" ColumnName="HP" />
                 <ScalarProperty Name="MaxHP" ColumnName="MaxHP" />
                 <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="inventory_ID" ColumnName="inventory_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="krozModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -448,8 +540,10 @@
             <EntityTypeMapping TypeName="krozModel.Item">
               <MappingFragment StoreEntitySet="Item">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Character_ID" ColumnName="Character_ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+                <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+                <ScalarProperty Name="Inventory_ID1" ColumnName="Inventory_ID1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -491,8 +585,6 @@
             <EntityTypeMapping TypeName="krozModel.Weapon">
               <MappingFragment StoreEntitySet="Weapon">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AttackRate" ColumnName="AttackRate" />
-                <ScalarProperty Name="MissedRate" ColumnName="MissedRate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

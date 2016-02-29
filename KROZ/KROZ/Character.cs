@@ -14,12 +14,6 @@ namespace KROZ
     
     public partial class Character
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Character()
-        {
-            this.Item = new HashSet<Item>();
-        }
-    
         public int ID { get; set; }
         public int currentCell_ID { get; set; }
         public string Name { get; set; }
@@ -27,10 +21,10 @@ namespace KROZ
         public int HP { get; set; }
         public int MaxHP { get; set; }
         public int Level { get; set; }
+        public Nullable<int> inventory_ID { get; set; }
     
         public virtual Cell Cell { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Item> Item { get; set; }
+        public virtual Inventory Inventory { get; set; }
         public virtual Monster Monster { get; set; }
         public virtual Player Player { get; set; }
     }

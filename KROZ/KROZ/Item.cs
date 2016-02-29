@@ -15,10 +15,13 @@ namespace KROZ
     public partial class Item
     {
         public int ID { get; set; }
-        public Nullable<int> Character_ID { get; set; }
         public string Name { get; set; }
+        public string Discriminator { get; set; }
+        public Nullable<int> Inventory_ID { get; set; }
+        public Nullable<int> Inventory_ID1 { get; set; }
     
-        public virtual Character Character { get; set; }
+        public virtual Inventory Inventory { get; set; }
+        public virtual Inventory Inventory1 { get; set; }
         public virtual UsableItem UsableItem { get; set; }
         public virtual Weapon Weapon { get; set; }
     }

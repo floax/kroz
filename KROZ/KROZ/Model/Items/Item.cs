@@ -20,8 +20,8 @@ namespace KROZ.Items
         public string name { get; set; }
 
         //Relations
-        public ICollection<Characters.Character> characters;
         public ICollection<Location.Cell> cells;
+        public ICollection<Menus.Inventory> inventory;
 
         public Item(string name)
         {

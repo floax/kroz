@@ -35,17 +35,16 @@ namespace KROZ.Characters
         [Column("CurrentCell")]
         public Location.Cell currentCell { get; set; }
 
-        //Relations
-        public ICollection<Items.Item> items { get; set; }
+        public Menus.Inventory inventory { get; set; }
 
-        public Character(string name, string genre, ICollection<Items.Item> items, Location.Cell currentCell, int maxHp = 100, int level = 1)
+        public Character(string name, string genre, Menus.Inventory items, Location.Cell currentCell, int maxHp = 100, int level = 1)
         {
             this.name = name;
             this.genre = genre;
             this.maxHP = maxHp;
-            this.items = items;
             this.currentCell = currentCell;
-            
+            this.inventory = items;
+
             //Init Default
             this.hp = maxHP;
             this.level = 1;

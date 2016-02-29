@@ -11,8 +11,6 @@ namespace KROZ.Items
     [Table("Weapon")]
     public class Weapon : Item
     {
-        [Key]
-        public int ID { get; set; }
         [Required]
         [Column("AttackRate")]
         int attackRate { set; get; }

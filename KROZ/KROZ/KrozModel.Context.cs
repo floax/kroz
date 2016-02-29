@@ -13,10 +13,10 @@ namespace KROZ
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class krozEntities : DbContext
+    public partial class krozEntities3 : DbContext
     {
-        public krozEntities()
-            : base("name=krozEntities")
+        public krozEntities3()
+            : base("name=krozEntities3")
         {
         }
     
@@ -27,6 +27,7 @@ namespace KROZ
     
         public virtual DbSet<Cell> Cell { get; set; }
         public virtual DbSet<Character> Character { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<Item> Item { get; set; }
         public virtual DbSet<Map> Map { get; set; }
         public virtual DbSet<Monster> Monster { get; set; }

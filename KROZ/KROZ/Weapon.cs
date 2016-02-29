@@ -15,8 +15,6 @@ namespace KROZ
     public partial class Weapon
     {
         public int ID { get; set; }
-        public int AttackRate { get; set; }
-        public int MissedRate { get; set; }
     
         public virtual Item Item { get; set; }
     }

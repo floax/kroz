@@ -11,7 +11,7 @@ namespace KROZ.Characters
     [Table("Monster")]
     public class PNJ : Character
     {
-        public PNJ(string name, string genre, int maxHp, ICollection<Items.Item> items, Location.Cell currentCell):base(name, genre, items, currentCell, maxHp)
+        public PNJ(string name, string genre, int maxHp, Menus.Inventory inventory = null, Location.Cell currentCell = null):base(name, genre, inventory, currentCell, maxHp)
         {
         }
     }

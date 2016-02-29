@@ -10,9 +10,11 @@ namespace KROZ.Controler
     {
         Writings wr = new Writings();
         Characters.PJ player;
-        public Navigate(Characters.PJ player)
+        Location.Map map;
+        public Navigate(Characters.PJ player, Location.Map map)
         {
             this.player = player;
+            this.map = map;
         }
 
         public void move()
@@ -72,6 +74,7 @@ namespace KROZ.Controler
                 }
 
                 wr.colors.writeGreen("Votre personnage se situe à X: " + player.currentCell.posX + ", Y: " + player.currentCell.posY);
+                map.showMap(player);
 
                 if (rnd.Next(100) <= player.currentCell.monsterRate)
                 {
@@ -89,13 +92,22 @@ namespace KROZ.Controler
         public void combat()
         {
             wr.colors.writeYellow("Vous avez rencontré un monstre ! PREPARE TO FIGHT");
+            Controler.Fight fg = new Fight(player, new Characters.PNJ("Monstre 1", "Troll", 45, null, player.currentCell));
+            Characters.Character winner = fg.startFight();
+            wr.colors.writeBlue(winner.name +" a gagné le combat !");
+            if (!winner.Equals(player))
+            {
+                wr.writeTitle("G A M E   O V E R");
+                wr.colors.writeRed("Retour au début de la carte !");
+                player.hp = player.maxHP;
+            }
         }
 
         public void goY(string direction)
         {
             switch (direction)
             {
-                case "n":
+                case "s":
                     if (player.currentCell.posY <= 20)
                     {
                         if (player.currentCell.posY < 20)
@@ -110,7 +122,7 @@ namespace KROZ.Controler
                     }
                     
                     break;
-                case "s":
+                case "n":
                     if (player.currentCell.posY >= 0)
                     {
                         if (player.currentCell.posY > 0)

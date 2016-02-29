@@ -17,14 +17,9 @@ namespace KROZ.Characters
         [Column("XP")]
         public int xP { get; set; }
 
-        public PJ(string name = "Jerry", string genre = "M", ICollection<Items.Item> items = null, Location.Cell currentCell = null, int maxHp = 100, int level = 1) : base(name, genre, items, currentCell, maxHp, level)
+        public PJ(string name = "Jerry", string genre = "M", Menus.Inventory inventory = null, Location.Cell currentCell = null, int maxHp = 100, int level = 1) : base(name, genre, inventory, currentCell, maxHp, level)
         {
             this.xP = 0;
-        }
-
-        public ICollection<Items.Item> returnInventory()
-        {
-            return this.items;
         }
     }
 }

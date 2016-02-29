@@ -31,7 +31,7 @@ namespace KROZ.Controler
         }
         public void writeWhite(string text)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(text);
             Console.ResetColor();
         }

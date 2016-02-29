@@ -36,5 +36,54 @@ namespace KROZ.Location
                 }
             }
         }
+
+        public void saveMap()
+        {
+
+        }
+
+        public void showMap(Characters.Character character)
+        {
+            for (int j = 0; j <= SIZE; j++)
+            {
+                for (int i = 0; i <= SIZE; i++)
+                {
+                    if(character.currentCell.posX != i || character.currentCell.posY != j)
+                    {
+                        if (i == 0 && j <= 20)
+                        {
+                            Console.Write("|");
+                        }
+                        else if (i < 20 && j == 0)
+                        {
+                            Console.Write("-");
+                        }
+                        else if (i < 20 && j == 20)
+                        {
+                            Console.Write("_");
+                        }
+                        else if (i == 20 && j <= 20)
+                        {
+                            Console.WriteLine("|");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }
+                    }
+                    else if (character.currentCell.posX == i && character.currentCell.posY == j)
+                    {
+                        if (i == 20 && j <= 20)
+                        {
+                            Console.WriteLine("0");
+                        }
+                        else
+                        {
+                            Console.Write("0");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

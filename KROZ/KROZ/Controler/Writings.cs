@@ -17,5 +17,12 @@ namespace KROZ.Controler
             Console.WriteLine("/!--------------------------------------------!\\");
             Console.ResetColor();
         }
+
+        public void writeSubTitle(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("/!------------"+ text +"-----------!\\");
+            Console.ResetColor();
+        }
     }
 }

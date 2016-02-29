@@ -18,6 +18,7 @@ namespace KROZ
         DbSet<Items.Item> items { get; set; }
         DbSet<Items.UsableItem> usableitems { get; set; }
         DbSet<Items.Weapon> weapons { get; set; }
+        DbSet<Menus.Inventory> inventory { get; set; }
 
         //Location Tables
         DbSet<Location.Map> maps { get; set; }

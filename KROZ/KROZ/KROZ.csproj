@@ -61,8 +61,12 @@
       <DependentUpon>KrozModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controler\ColorWriting.cs" />
+    <Compile Include="Controler\Fight.cs" />
     <Compile Include="Controler\Navigate.cs" />
     <Compile Include="Controler\Writings.cs" />
+    <Compile Include="Inventory.cs">
+      <DependentUpon>KrozModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs">
       <DependentUpon>KrozModel.tt</DependentUpon>
     </Compile>
@@ -102,6 +106,26 @@
     <Compile Include="Migrations\201602231033035_Init-2.Designer.cs">
       <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602281819378_new ini.cs" />
+    <Compile Include="Migrations\201602281819378_new ini.Designer.cs">
+      <DependentUpon>201602281819378_new ini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602281924571_inventaire.cs" />
+    <Compile Include="Migrations\201602281924571_inventaire.Designer.cs">
+      <DependentUpon>201602281924571_inventaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602281927072_inventaire2.cs" />
+    <Compile Include="Migrations\201602281927072_inventaire2.Designer.cs">
+      <DependentUpon>201602281927072_inventaire2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602281929159_inventaire3.cs" />
+    <Compile Include="Migrations\201602281929159_inventaire3.Designer.cs">
+      <DependentUpon>201602281929159_inventaire3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602281933056_inventaire4.cs" />
+    <Compile Include="Migrations\201602281933056_inventaire4.Designer.cs">
+      <DependentUpon>201602281933056_inventaire4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Characters\Character.cs" />
     <Compile Include="Model\Items\Component.cs" />
@@ -137,7 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
     <EntityDeploy Include="KrozModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KrozModel.Designer.cs</LastGenOutput>
@@ -166,6 +189,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602231033035_Init-2.resx">
       <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602281819378_new ini.resx">
+      <DependentUpon>201602281819378_new ini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602281924571_inventaire.resx">
+      <DependentUpon>201602281924571_inventaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602281927072_inventaire2.resx">
+      <DependentUpon>201602281927072_inventaire2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602281929159_inventaire3.resx">
+      <DependentUpon>201602281929159_inventaire3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602281933056_inventaire4.resx">
+      <DependentUpon>201602281933056_inventaire4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

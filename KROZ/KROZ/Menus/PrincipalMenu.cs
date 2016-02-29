@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace KROZ.Menus
 {
     class PrincipalMenu
     {
+        protected string _NAMEPC = "PC-LO";
         Controler.Writings wr = new Controler.Writings();
         Characters.PJ joueur = new Characters.PJ();
         Location.Map map = new Location.Map("map");
@@ -83,47 +85,80 @@ namespace KROZ.Menus
         }
         protected void continueGame()
         {
-            gameStatus.gameResume();
+            string name;
+
+            Console.WriteLine("Veuillez choisir un personnage parmi la liste existante : \n________________________________\n");
+
+            string ConnectionString = "Data Source="+_NAMEPC+";Initial Catalog=kroz;Integrated Security=True;Pooling=False";
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                //On crée l'utilisateur dans la DB, en lui assigant le cellule de départ numéro 1. Ce sera la même pour tous
+                SqlCommand requete = new SqlCommand("SELECT name FROM character", conn);
+                conn.Open();
+
+                try
+                {
+                    SqlDataReader reader = requete.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(String.Format("{0}",
+                        reader[0]));
+                    }
+                }
+
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            Console.WriteLine("\n");
+            name = Console.ReadLine();
+
+            gameStatus.gameResume(name);
         }
 
         public Boolean showPlayerOptions()
         {
             string choice;
 
-            Console.WriteLine("=-- ACTIONS POSSIBLES --=\n1. Inventaire \n2. Navigation \n3. Informations du joueur (informations) \n4. Sauvegarder \n5. Quitter le jeu (quitter)");
+            wr.writeTitle("MENU PRINCIPAL");
+            Console.WriteLine("L. Inventaire \nN. Navigation \nI. Informations du joueur (informations) \nS. Sauvegarder \nQ. Quitter le jeu (quitter)");
             choice = Console.ReadLine();
 
-            switch (choice)
+            switch (choice.ToLower())
             {
-                case "1":
+                case "l":
                     //Pour chaque objet dans l'inventaire, on va chercher le nom et on l'affiche
-                    for (int i = 0; i < this.joueur.returnInventory().Count(); i++)
+                    wr.writeTitle(this.joueur.name + "'s LOOT");
+                    for (int i = 0; i < this.joueur.inventory.getInventory().Count(); i++)
                     {
-                        Console.WriteLine("Item" + i + 1 + " : " + this.joueur.returnInventory().ElementAt(i).name);
+                       wr.colors.writeWhite("Objet " + i + " : " + this.joueur.inventory.getInventory().ElementAt(i).name);
                     }
 
                     break;
 
-                case "2":
+                case "n":
                     /**
                     *Récupèrer la position du joueur
                     **/
 
-                    Controler.Navigate nav = new Controler.Navigate(this.joueur);
+                    Controler.Navigate nav = new Controler.Navigate(this.joueur, this.map);
                     nav.move();
 
                     break;
 
-                case "3":
+                case "i":
                     Console.WriteLine("Informations sur le joueur");
                     this.joueur.characterInfo();
                     break;
 
-                case "4":
+                case "s":
                     Console.WriteLine("Jeux sauvegardé");
                     break;
 
-                case "5":
+                case "q":
                     Console.WriteLine("Aurevoir !");
                     return false;
             }
