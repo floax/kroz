@@ -11,11 +11,15 @@ using KROZ.Location;
 namespace KROZ.Characters
 {
     [Table("Player")]
-    class PJ : Character
+    public class PJ : Character
     {
         [Required]
         [Column("XP")]
         public int xP { get; set; }
+
+        public PJ()
+        {
+        }
 
         public PJ(string name = "Jerry", string genre = "M", Menus.Inventory inventory = null, Location.Cell currentCell = null, int maxHp = 100, int level = 1) : base(name, genre, inventory, currentCell, maxHp, level)
         {

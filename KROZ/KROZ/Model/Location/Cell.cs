@@ -37,7 +37,11 @@ namespace KROZ.Location
         //Relations
         ICollection<Characters.Character> charaters;
         ICollection<Items.Item> items;
-        public ICollection<Map> maps { get; set; }
+        public Map map { get; set; }
+
+        public Cell()
+        {
+        }
 
         public Cell(int posX, int posY, Boolean canMoveTo)
         {

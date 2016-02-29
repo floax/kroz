@@ -20,8 +20,8 @@ namespace KROZ
         public Nullable<int> Inventory_ID { get; set; }
         public Nullable<int> Inventory_ID1 { get; set; }
     
-        public virtual Inventory Inventory { get; set; }
-        public virtual Inventory Inventory1 { get; set; }
+        public virtual Inventory InventoryWeapon { get; set; }
+        public virtual Inventory InventoryUsableItem { get; set; }
         public virtual UsableItem UsableItem { get; set; }
         public virtual Weapon Weapon { get; set; }
     }

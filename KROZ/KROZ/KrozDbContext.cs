@@ -10,18 +10,18 @@ namespace KROZ
     public class KrozDbContext : DbContext
     {
         //Player and Monster Tables
-        DbSet<Characters.Character> characters { get; set; }
-        DbSet<Characters.PJ> players { get; set; }
-        DbSet<Characters.PNJ> monsters { get; set; }
+        public DbSet<Characters.Character> characters { get; set; }
+        public DbSet<Characters.PJ> players { get; set; }
+        public DbSet<Characters.PNJ> monsters { get; set; }
 
         //Object and UsableItem Tables
-        DbSet<Items.Item> items { get; set; }
-        DbSet<Items.UsableItem> usableitems { get; set; }
-        DbSet<Items.Weapon> weapons { get; set; }
-        DbSet<Menus.Inventory> inventory { get; set; }
+        public DbSet<Items.Item> items { get; set; }
+        public DbSet<Items.UsableItem> usableitems { get; set; }
+        public DbSet<Items.Weapon> weapons { get; set; }
+        public DbSet<Menus.Inventory> inventory { get; set; }
 
         //Location Tables
-        DbSet<Location.Map> maps { get; set; }
-        DbSet<Location.Cell> cells { get; set; }
+        public DbSet<Location.Map> maps { get; set; }
+        public DbSet<Location.Cell> cells { get; set; }
     }
 }

@@ -79,14 +79,24 @@ namespace KROZ.Controler
                 if (rnd.Next(100) <= player.currentCell.monsterRate)
                 {
                     this.combat();
+                }else if (rnd.Next(100) <= 7)
+                {
+                    this.loot();
                 }
-
                 wr.colors.writeGray("Direction suivante (N/S/E/O/M):");
             } while (end == false);
 
             /**
             *Sauvegarder dans la base la nouvelle position du joueur
             **/
+        }
+
+        public void loot()
+        {
+            wr.colors.writeGreen("Vous avez récupérer un objet !");
+            wr.colors.writeGray("Appuyer sur une touche pour découvrir de quoi il s'agit.");
+            Console.ReadLine();
+
         }
 
         public void combat()

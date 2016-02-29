@@ -18,7 +18,6 @@ namespace KROZ
         public Cell()
         {
             this.Character = new HashSet<Character>();
-            this.Map = new HashSet<Map>();
         }
     
         public int ID { get; set; }
@@ -28,10 +27,10 @@ namespace KROZ
         public int MonsterRate { get; set; }
         public string Description { get; set; }
         public int MonsterGroup { get; set; }
+        public Nullable<int> map_ID { get; set; }
     
+        public virtual Map Map { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Character> Character { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Map> Map { get; set; }
     }
 }

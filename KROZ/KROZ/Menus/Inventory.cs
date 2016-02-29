@@ -14,7 +14,7 @@ namespace KROZ.Menus
         public List<Items.Item> weapons { get; set; }
         public List<Items.Item> usableItems { get; set; }
 
-        public ICollection<Characters.Character> charater;
+        public ICollection<Characters.Character> character { get; set; }
 
         public Inventory()
         {

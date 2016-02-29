@@ -3,7 +3,7 @@ namespace KROZ.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class inventaire4 : DbMigration
+    public partial class Initialisation : DbMigration
     {
         public override void Up()
         {

@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e21e8c1a8d924d388e07e920ce81001d" Name="Diagram1" ZoomLevel="86">
-        <EntityTypeShape EntityType="krozModel.Cell" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="0892b917354e4d26ab4e37a5aaff6dfd" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="krozModel.Cell" Width="1.5" PointX="2.375" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="krozModel.Character" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.Inventory" Width="1.5" PointX="0.875" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.Item" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.Map" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.Monster" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.Player" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.UsableItem" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="krozModel.Weapon" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Inventory" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Item" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Map" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Monster" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Player" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.UsableItem" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="krozModel.Weapon" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="krozModel.FK_dbo_Cell_dbo_Map_mapID_ID" ManuallyRouted="false" />
         <AssociationConnector Association="krozModel.FK_dbo_Character_dbo_Cell_currentCell_ID" ManuallyRouted="false" />
-        <AssociationConnector Association="krozModel.FK_dbo_Map_dbo_Cell_Cell_ID" ManuallyRouted="false" />
         <AssociationConnector Association="krozModel.FK_dbo_Character_dbo_Inventory_inventory_ID" ManuallyRouted="false" />
         <AssociationConnector Association="krozModel.FK_dbo_Monster_dbo_Character_ID" ManuallyRouted="false" />
         <AssociationConnector Association="krozModel.FK_dbo_Player_dbo_Character_ID" ManuallyRouted="false" />

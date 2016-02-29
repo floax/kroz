@@ -14,10 +14,16 @@ namespace KROZ
     
     public partial class Map
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Map()
+        {
+            this.Cell = new HashSet<Cell>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Cell_ID { get; set; }
     
-        public virtual Cell Cell { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cell> Cell { get; set; }
     }
 }

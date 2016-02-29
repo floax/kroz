@@ -11,16 +11,17 @@ namespace KROZ.Menus
     class PrincipalMenu
     {
         protected string _NAMEPC = "PC-LO";
+        KrozDbContext db = new KrozDbContext();
         Controler.Writings wr = new Controler.Writings();
         Characters.PJ joueur = new Characters.PJ();
-        Location.Map map = new Location.Map("map");
+        Location.Map map;
 
         //Locale Vars
         GameStatus gameStatus = new GameStatus();
 
-        public PrincipalMenu()
+        public PrincipalMenu(Location.Map map)
         {
-
+            this.map = map;
         }
 
         public void afficheIntro()
@@ -75,7 +76,6 @@ namespace KROZ.Menus
             List<dynamic> tempList = new List<dynamic>();
             tempList = gameStatus.init();
             this.joueur = tempList[0];
-            this.map = tempList[1];
 
             wr.writeTitle("Spécificité de votre personnage");
             wr.colors.writeWhite(this.joueur.characterInfo());
@@ -89,31 +89,11 @@ namespace KROZ.Menus
 
             Console.WriteLine("Veuillez choisir un personnage parmi la liste existante : \n________________________________\n");
 
-            string ConnectionString = "Data Source="+_NAMEPC+";Initial Catalog=kroz;Integrated Security=True;Pooling=False";
-
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            foreach(Characters.PJ player in (from i in db.players select i).ToList<Characters.PJ>())
             {
-                //On crée l'utilisateur dans la DB, en lui assigant le cellule de départ numéro 1. Ce sera la même pour tous
-                SqlCommand requete = new SqlCommand("SELECT name FROM character", conn);
-                conn.Open();
-
-                try
-                {
-                    SqlDataReader reader = requete.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(String.Format("{0}",
-                        reader[0]));
-                    }
-                }
-
-                finally
-                {
-                    conn.Close();
-                }
+                wr.colors.writeWhite(player.name);
             }
 
-            Console.WriteLine("\n");
             name = Console.ReadLine();
 
             gameStatus.gameResume(name);

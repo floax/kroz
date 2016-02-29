@@ -13,10 +13,10 @@ namespace KROZ
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class krozEntities3 : DbContext
+    public partial class krozEntities : DbContext
     {
-        public krozEntities3()
-            : base("name=krozEntities3")
+        public krozEntities()
+            : base("name=krozEntities")
         {
         }
     

@@ -11,6 +11,7 @@ namespace KROZ.Location
     [Table("Map")]
     public class Map
     {
+        protected KrozDbContext db = new KrozDbContext();
         protected const int SIZE = 20;
         [Key]
         public int ID { get; set; }
@@ -23,7 +24,6 @@ namespace KROZ.Location
         public Map(string name)
         {
             this.name = name;
-            cells = new List<Cell>();
         }
 
         public void createMap()
@@ -32,14 +32,12 @@ namespace KROZ.Location
             {
                 for(int j = 0; j <= SIZE; j++)
                 {
-                    cells.Add(new Cell(i,j, true));
+                    db.cells.Add(new Cell(i, j, true));
                 }
             }
-        }
 
-        public void saveMap()
-        {
-
+            cells = (from i in db.cells where i.map.ID == this.ID select i).ToList();
+            db.SaveChanges();
         }
 
         public void showMap(Characters.Character character)

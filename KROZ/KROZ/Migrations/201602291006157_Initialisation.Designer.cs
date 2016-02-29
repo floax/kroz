@@ -7,13 +7,13 @@ namespace KROZ.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Init2 : IMigrationMetadata
+    public sealed partial class Initialisation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialisation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201602231033035_Init-2"; }
+            get { return "201602291006157_Initialisation"; }
         }
         
         string IMigrationMetadata.Source

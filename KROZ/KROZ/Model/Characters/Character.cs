@@ -37,7 +37,7 @@ namespace KROZ.Characters
 
         public Menus.Inventory inventory { get; set; }
 
-        public Character(string name, string genre, Menus.Inventory items, Location.Cell currentCell, int maxHp = 100, int level = 1)
+        public Character(string name = "Charact1", string genre = "F", Menus.Inventory items = null, Location.Cell currentCell= null, int maxHp = 100, int level = 1)
         {
             this.name = name;
             this.genre = genre;

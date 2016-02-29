@@ -18,8 +18,8 @@ namespace KROZ
         public Inventory()
         {
             this.Character = new HashSet<Character>();
-            this.Item = new HashSet<Item>();
-            this.Item1 = new HashSet<Item>();
+            this.Weapon = new HashSet<Item>();
+            this.UsableItem = new HashSet<Item>();
         }
     
         public int ID { get; set; }
@@ -27,8 +27,8 @@ namespace KROZ
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Character> Character { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<Item> Weapon { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Item> Item1 { get; set; }
+        public virtual ICollection<Item> UsableItem { get; set; }
     }
 }

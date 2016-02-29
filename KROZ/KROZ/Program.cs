@@ -12,9 +12,16 @@ namespace KROZ
 {
     class Program
     {
+        protected static KrozDbContext db = new KrozDbContext();
+        protected static Location.Map map;
+
         static void Main(string[] args)
         {
+            
             Controler.Writings wr = new Controler.Writings();
+            wr.colors.writeGray("Création de la carte...");
+            initGame();
+            Console.Clear();
             wr.colors.writeBlue("!------------------------------------------!");
             wr.colors.writeBlue("`7MMF' `YMM'");
             wr.colors.writeBlue("  MM   .M'");
@@ -26,10 +33,19 @@ namespace KROZ
             wr.colors.writeBlue("!------------------------------------------!");
             wr.colors.writeBlue("                      -                     ");
 
-            PrincipalMenu menu = new PrincipalMenu();
+            PrincipalMenu menu = new PrincipalMenu(map);
             menu.afficheIntro();
 
             Console.ReadLine();
+        }
+
+        public static void initGame()
+        {
+            map = new Location.Map("Monde");
+            map.createMap();
+
+            db.maps.Add(map);
+            db.SaveChanges();
         }
     }
 }

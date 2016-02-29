@@ -90,41 +90,13 @@
       <DependentUpon>KrozModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Menus\GameStatus.cs" />
-    <Compile Include="Migrations\201602231004344_Test.cs" />
-    <Compile Include="Migrations\201602231004344_Test.Designer.cs">
-      <DependentUpon>201602231004344_Test.cs</DependentUpon>
+    <Compile Include="Migrations\201602291006157_Initialisation.cs" />
+    <Compile Include="Migrations\201602291006157_Initialisation.Designer.cs">
+      <DependentUpon>201602291006157_Initialisation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602231022374_Test2.cs" />
-    <Compile Include="Migrations\201602231022374_Test2.Designer.cs">
-      <DependentUpon>201602231022374_Test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602231028423_Initialisation.cs" />
-    <Compile Include="Migrations\201602231028423_Initialisation.Designer.cs">
-      <DependentUpon>201602231028423_Initialisation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602231033035_Init-2.cs" />
-    <Compile Include="Migrations\201602231033035_Init-2.Designer.cs">
-      <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602281819378_new ini.cs" />
-    <Compile Include="Migrations\201602281819378_new ini.Designer.cs">
-      <DependentUpon>201602281819378_new ini.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602281924571_inventaire.cs" />
-    <Compile Include="Migrations\201602281924571_inventaire.Designer.cs">
-      <DependentUpon>201602281924571_inventaire.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602281927072_inventaire2.cs" />
-    <Compile Include="Migrations\201602281927072_inventaire2.Designer.cs">
-      <DependentUpon>201602281927072_inventaire2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602281929159_inventaire3.cs" />
-    <Compile Include="Migrations\201602281929159_inventaire3.Designer.cs">
-      <DependentUpon>201602281929159_inventaire3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602281933056_inventaire4.cs" />
-    <Compile Include="Migrations\201602281933056_inventaire4.Designer.cs">
-      <DependentUpon>201602281933056_inventaire4.cs</DependentUpon>
+    <Compile Include="Migrations\201602291043553_inventaire.cs" />
+    <Compile Include="Migrations\201602291043553_inventaire.Designer.cs">
+      <DependentUpon>201602291043553_inventaire.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Characters\Character.cs" />
@@ -178,35 +150,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602231004344_Test.resx">
-      <DependentUpon>201602231004344_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602231022374_Test2.resx">
-      <DependentUpon>201602231022374_Test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602231028423_Initialisation.resx">
-      <DependentUpon>201602231028423_Initialisation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602231033035_Init-2.resx">
-      <DependentUpon>201602231033035_Init-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281819378_new ini.resx">
-      <DependentUpon>201602281819378_new ini.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281924571_inventaire.resx">
-      <DependentUpon>201602281924571_inventaire.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281927072_inventaire2.resx">
-      <DependentUpon>201602281927072_inventaire2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281929159_inventaire3.resx">
-      <DependentUpon>201602281929159_inventaire3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281933056_inventaire4.resx">
-      <DependentUpon>201602281933056_inventaire4.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="KrozModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KrozModel.edmx</DependentUpon>
@@ -217,6 +160,14 @@
       <DependentUpon>KrozModel.edmx</DependentUpon>
       <LastGenOutput>KrozModel.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602291006157_Initialisation.resx">
+      <DependentUpon>201602291006157_Initialisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602291043553_inventaire.resx">
+      <DependentUpon>201602291043553_inventaire.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
