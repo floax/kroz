@@ -26,6 +26,10 @@ namespace KROZ.Location
             this.name = name;
         }
 
+        public Map()
+        {
+        }
+
         public void createMap()
         {
             for(int i = 0; i <= SIZE;i++)

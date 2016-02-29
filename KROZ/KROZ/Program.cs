@@ -41,10 +41,16 @@ namespace KROZ
 
         public static void initGame()
         {
-            map = new Location.Map("Monde");
-            map.createMap();
-
-            db.maps.Add(map);
+            if(db.maps.Count() == 0)
+            {
+                map = new Location.Map("Monde");
+                map.createMap();
+                db.maps.Add(map);
+            }
+            else
+            {
+                map = db.maps.Find(15);
+            }
             db.SaveChanges();
         }
     }
